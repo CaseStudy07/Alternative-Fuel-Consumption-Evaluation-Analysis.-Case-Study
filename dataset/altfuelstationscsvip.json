@@ -1,0 +1,321 @@
+{
+	"name": "altfuelstationscsvip",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudySA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "altfuelstations.csv",
+				"fileSystem": "curated"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Fuel Type Code",
+				"type": "String"
+			},
+			{
+				"name": "Station Name",
+				"type": "String"
+			},
+			{
+				"name": "Street Address",
+				"type": "String"
+			},
+			{
+				"name": "Intersection Directions",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "ZIP",
+				"type": "String"
+			},
+			{
+				"name": "Plus4",
+				"type": "String"
+			},
+			{
+				"name": "Station Phone",
+				"type": "String"
+			},
+			{
+				"name": "Status Code",
+				"type": "String"
+			},
+			{
+				"name": "Expected Date",
+				"type": "String"
+			},
+			{
+				"name": "Groups With Access Code",
+				"type": "String"
+			},
+			{
+				"name": "Access Days Time",
+				"type": "String"
+			},
+			{
+				"name": "Cards Accepted",
+				"type": "String"
+			},
+			{
+				"name": "BD Blends",
+				"type": "String"
+			},
+			{
+				"name": "NG Fill Type Code",
+				"type": "String"
+			},
+			{
+				"name": "NG PSI",
+				"type": "String"
+			},
+			{
+				"name": "EV Level1 EVSE Num",
+				"type": "String"
+			},
+			{
+				"name": "EV Level2 EVSE Num",
+				"type": "String"
+			},
+			{
+				"name": "EV DC Fast Count",
+				"type": "String"
+			},
+			{
+				"name": "EV Other Info",
+				"type": "String"
+			},
+			{
+				"name": "EV Network",
+				"type": "String"
+			},
+			{
+				"name": "EV Network Web",
+				"type": "String"
+			},
+			{
+				"name": "Geocode Status",
+				"type": "String"
+			},
+			{
+				"name": "Latitude",
+				"type": "String"
+			},
+			{
+				"name": "Longitude",
+				"type": "String"
+			},
+			{
+				"name": "Date Last Confirmed",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Updated At",
+				"type": "String"
+			},
+			{
+				"name": "Owner Type Code",
+				"type": "String"
+			},
+			{
+				"name": "Federal Agency ID",
+				"type": "String"
+			},
+			{
+				"name": "Federal Agency Name",
+				"type": "String"
+			},
+			{
+				"name": "Open Date",
+				"type": "String"
+			},
+			{
+				"name": "Hydrogen Status Link",
+				"type": "String"
+			},
+			{
+				"name": "NG Vehicle Class",
+				"type": "String"
+			},
+			{
+				"name": "LPG Primary",
+				"type": "String"
+			},
+			{
+				"name": "E85 Blender Pump",
+				"type": "String"
+			},
+			{
+				"name": "EV Connector Types",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "Intersection Directions (French)",
+				"type": "String"
+			},
+			{
+				"name": "Access Days Time (French)",
+				"type": "String"
+			},
+			{
+				"name": "BD Blends (French)",
+				"type": "String"
+			},
+			{
+				"name": "Groups With Access Code (French)",
+				"type": "String"
+			},
+			{
+				"name": "Hydrogen Is Retail",
+				"type": "String"
+			},
+			{
+				"name": "Access Code",
+				"type": "String"
+			},
+			{
+				"name": "Access Detail Code",
+				"type": "String"
+			},
+			{
+				"name": "Federal Agency Code",
+				"type": "String"
+			},
+			{
+				"name": "Facility Type",
+				"type": "String"
+			},
+			{
+				"name": "CNG Dispenser Num",
+				"type": "String"
+			},
+			{
+				"name": "CNG On-Site Renewable Source",
+				"type": "String"
+			},
+			{
+				"name": "CNG Total Compression Capacity",
+				"type": "String"
+			},
+			{
+				"name": "CNG Storage Capacity",
+				"type": "String"
+			},
+			{
+				"name": "LNG On-Site Renewable Source",
+				"type": "String"
+			},
+			{
+				"name": "E85 Other Ethanol Blends",
+				"type": "String"
+			},
+			{
+				"name": "EV Pricing",
+				"type": "String"
+			},
+			{
+				"name": "EV Pricing (French)",
+				"type": "String"
+			},
+			{
+				"name": "LPG Nozzle Types",
+				"type": "String"
+			},
+			{
+				"name": "Hydrogen Pressures",
+				"type": "String"
+			},
+			{
+				"name": "Hydrogen Standards",
+				"type": "String"
+			},
+			{
+				"name": "CNG Fill Type Code",
+				"type": "String"
+			},
+			{
+				"name": "CNG PSI",
+				"type": "String"
+			},
+			{
+				"name": "CNG Vehicle Class",
+				"type": "String"
+			},
+			{
+				"name": "LNG Vehicle Class",
+				"type": "String"
+			},
+			{
+				"name": "EV On-Site Renewable Source",
+				"type": "String"
+			},
+			{
+				"name": "Restricted Access",
+				"type": "String"
+			},
+			{
+				"name": "RD Blends",
+				"type": "String"
+			},
+			{
+				"name": "RD Blends (French)",
+				"type": "String"
+			},
+			{
+				"name": "RD Blended with Biodiesel",
+				"type": "String"
+			},
+			{
+				"name": "RD Maximum Biodiesel Level",
+				"type": "String"
+			},
+			{
+				"name": "NPS Unit Name",
+				"type": "String"
+			},
+			{
+				"name": "CNG Station Sells Renewable Natural Gas",
+				"type": "String"
+			},
+			{
+				"name": "LNG Station Sells Renewable Natural Gas",
+				"type": "String"
+			},
+			{
+				"name": "Maximum Vehicle Class",
+				"type": "String"
+			},
+			{
+				"name": "EV Workplace Charging",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

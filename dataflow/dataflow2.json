@@ -1,0 +1,142 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "altfuelstationscsvip",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "cleanFScsv",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Fuel Type Code} as string,",
+				"          {Station Name} as string,",
+				"          {Street Address} as string,",
+				"          {Intersection Directions} as string,",
+				"          City as string,",
+				"          State as string,",
+				"          ZIP as string,",
+				"          Plus4 as string,",
+				"          {Station Phone} as string,",
+				"          {Status Code} as string,",
+				"          {Expected Date} as string,",
+				"          {Groups With Access Code} as string,",
+				"          {Access Days Time} as string,",
+				"          {Cards Accepted} as string,",
+				"          {BD Blends} as string,",
+				"          {NG Fill Type Code} as string,",
+				"          {NG PSI} as string,",
+				"          {EV Level1 EVSE Num} as string,",
+				"          {EV Level2 EVSE Num} as string,",
+				"          {EV DC Fast Count} as string,",
+				"          {EV Other Info} as string,",
+				"          {EV Network} as string,",
+				"          {EV Network Web} as string,",
+				"          {Geocode Status} as string,",
+				"          Latitude as string,",
+				"          Longitude as string,",
+				"          {Date Last Confirmed} as string,",
+				"          ID as string,",
+				"          {Updated At} as string,",
+				"          {Owner Type Code} as string,",
+				"          {Federal Agency ID} as string,",
+				"          {Federal Agency Name} as string,",
+				"          {Open Date} as string,",
+				"          {Hydrogen Status Link} as string,",
+				"          {NG Vehicle Class} as string,",
+				"          {LPG Primary} as string,",
+				"          {E85 Blender Pump} as string,",
+				"          {EV Connector Types} as string,",
+				"          Country as string,",
+				"          {Intersection Directions (French)} as string,",
+				"          {Access Days Time (French)} as string,",
+				"          {BD Blends (French)} as string,",
+				"          {Groups With Access Code (French)} as string,",
+				"          {Hydrogen Is Retail} as string,",
+				"          {Access Code} as string,",
+				"          {Access Detail Code} as string,",
+				"          {Federal Agency Code} as string,",
+				"          {Facility Type} as string,",
+				"          {CNG Dispenser Num} as string,",
+				"          {CNG On-Site Renewable Source} as string,",
+				"          {CNG Total Compression Capacity} as string,",
+				"          {CNG Storage Capacity} as string,",
+				"          {LNG On-Site Renewable Source} as string,",
+				"          {E85 Other Ethanol Blends} as string,",
+				"          {EV Pricing} as string,",
+				"          {EV Pricing (French)} as string,",
+				"          {LPG Nozzle Types} as string,",
+				"          {Hydrogen Pressures} as string,",
+				"          {Hydrogen Standards} as string,",
+				"          {CNG Fill Type Code} as string,",
+				"          {CNG PSI} as string,",
+				"          {CNG Vehicle Class} as string,",
+				"          {LNG Vehicle Class} as string,",
+				"          {EV On-Site Renewable Source} as string,",
+				"          {Restricted Access} as string,",
+				"          {RD Blends} as string,",
+				"          {RD Blends (French)} as string,",
+				"          {RD Blended with Biodiesel} as string,",
+				"          {RD Maximum Biodiesel Level} as string,",
+				"          {NPS Unit Name} as string,",
+				"          {CNG Station Sells Renewable Natural Gas} as string,",
+				"          {LNG Station Sells Renewable Natural Gas} as string,",
+				"          {Maximum Vehicle Class} as string,",
+				"          {EV Workplace Charging} as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          {Fuel Type Code},",
+				"          {Station Name},",
+				"          {Street Address},",
+				"          {Intersection Directions},",
+				"          City,",
+				"          State,",
+				"          ZIP,",
+				"          {Status Code},",
+				"          {Groups With Access Code},",
+				"          {BD Blends},",
+				"          Latitude,",
+				"          Longitude,",
+				"          ID,",
+				"          {Open Date},",
+				"          Country",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 derive(Location = City+\" \"+State+\" \"+Country+\", \"+ZIP) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

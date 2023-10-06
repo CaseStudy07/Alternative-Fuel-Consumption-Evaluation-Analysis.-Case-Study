@@ -1,0 +1,59 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "rawFSjson",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "JSONflattenedFS",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          station_locator_url as string,",
+				"          total_results as integer,",
+				"          station_counts as (total as integer, fuels as (BD as (total as integer), E85 as (total as integer), ELEC as (total as integer, stations as (total as integer)), HY as (total as integer), LNG as (total as integer), CNG as (total as integer), LPG as (total as integer), RD as (total as integer))),",
+				"          fuel_stations as (access_code as string, access_days_time as string, access_detail_code as string, cards_accepted as string, date_last_confirmed as string, expected_date as string, fuel_type_code as string, groups_with_access_code as string, id as integer, open_date as string, owner_type_code as string, status_code as string, restricted_access as string, maximum_vehicle_class as string, station_name as string, station_phone as string, updated_at as string, facility_type as string, geocode_status as string, latitude as double, longitude as double, city as string, intersection_directions as string, plus4 as string, state as string, street_address as string, zip as string, country as string, bd_blends as string, cng_dispenser_num as string, cng_fill_type_code as string, cng_psi as string, cng_renewable_source as string, cng_total_compression as string, cng_total_storage as string, cng_vehicle_class as string, cng_has_rng as boolean, e85_blender_pump as string, e85_other_ethanol_blends as string, ev_connector_types as string, ev_dc_fast_num as string, ev_level1_evse_num as string, ev_level2_evse_num as string, ev_network as string, ev_network_web as string, ev_other_evse as string, ev_pricing as string, ev_renewable_source as string, hy_is_retail as string, hy_pressures as string, hy_standards as string, hy_status_link as string, lng_renewable_source as string, lng_vehicle_class as string, lng_has_rng as string, lpg_primary as string, lpg_nozzle_types as string, ng_fill_type_code as string, ng_psi as string, ng_vehicle_class as string, rd_blends as string, rd_blends_fr as string, rd_blended_with_biodiesel as string, rd_max_biodiesel_level as string, nps_unit_name as string, access_days_time_fr as string, intersection_directions_fr as string, bd_blends_fr as string, groups_with_access_code_fr as string, ev_pricing_fr as string)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 foldDown(unroll(fuel_stations, fuel_stations),",
+				"     mapColumn(",
+				"          station_locator_url,",
+				"          total_results,",
+				"          station_counts,",
+				"          fuel_stations",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten1",
+				"flatten1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

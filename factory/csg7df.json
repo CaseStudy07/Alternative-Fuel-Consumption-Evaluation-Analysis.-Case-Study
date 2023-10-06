@@ -1,0 +1,9 @@
+{
+	"name": "csg7df",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7bf80234-d4e1-44fe-9d0d-9d80bebceef7",
+		"tenantId": "dce87315-8ffa-4a01-ab40-0de5a7214b2f"
+	}
+}

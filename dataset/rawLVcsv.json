@@ -1,0 +1,173 @@
+{
+	"name": "rawLVcsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudySA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "LightVehicles.csv",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Vehicle_ID",
+				"type": "String"
+			},
+			{
+				"name": "Fuel_ID",
+				"type": "String"
+			},
+			{
+				"name": "Fuel_Configuration_ID",
+				"type": "String"
+			},
+			{
+				"name": "Manufacturer_ID",
+				"type": "String"
+			},
+			{
+				"name": "Category_ID",
+				"type": "String"
+			},
+			{
+				"name": "Manufacturer",
+				"type": "String"
+			},
+			{
+				"name": "Model",
+				"type": "String"
+			},
+			{
+				"name": "FullModel",
+				"type": "String"
+			},
+			{
+				"name": "Model_Year",
+				"type": "String"
+			},
+			{
+				"name": "Fuel",
+				"type": "String"
+			},
+			{
+				"name": "Alternative_Fuel_Economy_City",
+				"type": "String"
+			},
+			{
+				"name": "Alternative_Fuel_Economy_Highway",
+				"type": "String"
+			},
+			{
+				"name": "Conventional_Fuel_Economy_City",
+				"type": "String"
+			},
+			{
+				"name": "Conventional_Fuel_Economy_Highway",
+				"type": "String"
+			},
+			{
+				"name": "Transmission_Type",
+				"type": "String"
+			},
+			{
+				"name": "Engine_Type",
+				"type": "String"
+			},
+			{
+				"name": "Engine_Size",
+				"type": "String"
+			},
+			{
+				"name": "Engine_Cylinder_Count",
+				"type": "String"
+			},
+			{
+				"name": "EngineMotors_Description",
+				"type": "String"
+			},
+			{
+				"name": "Manufacturer_URL",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "Fuel_Code",
+				"type": "String"
+			},
+			{
+				"name": "Fuel_Configuration_Name",
+				"type": "String"
+			},
+			{
+				"name": "Electric_Only_Range",
+				"type": "String"
+			},
+			{
+				"name": "PHEV_Total_Range",
+				"type": "String"
+			},
+			{
+				"name": "PHEV_Type",
+				"type": "String"
+			},
+			{
+				"name": "Notes",
+				"type": "String"
+			},
+			{
+				"name": "Drivetrain",
+				"type": "String"
+			},
+			{
+				"name": "Charging_Rate_Level_2_kW",
+				"type": "String"
+			},
+			{
+				"name": "Charging_Rate_DC_Fast_kW",
+				"type": "String"
+			},
+			{
+				"name": "Charging_Speed_Level_1_miles_added_per_hour_of_charging",
+				"type": "String"
+			},
+			{
+				"name": "Charging_Speed_Level_2_miles_added_per_hour_of_charging",
+				"type": "String"
+			},
+			{
+				"name": "Charging_Speed_DC_Fast_miles_added_per_hour_of_charging",
+				"type": "String"
+			},
+			{
+				"name": "Battery_Voltage",
+				"type": "String"
+			},
+			{
+				"name": "Battery_Capacity_Amp_Hours",
+				"type": "String"
+			},
+			{
+				"name": "Battery_Capacity_kWh",
+				"type": "String"
+			},
+			{
+				"name": "Seating_Capacity",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
